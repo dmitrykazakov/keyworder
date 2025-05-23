@@ -4,17 +4,17 @@
 
 ## Как работает?
 
-Keyworder анализирует изображения и видео, извлекая из них кадры, и отправляет их в ChatGPT для генерации заголовка и ключевых слов
-Результаты сохраняются в CSV-файлах adobestock.csv и stocksubmitter.csv
-adobestock.csv для загрузки сразу на адоб
-stocksubmitter.csv чтобы прикрепить медатанные к файлам в соответствующем софте
+1. Keyworder анализирует изображения и видео, извлекая из них кадры, и отправляет их в ChatGPT для генерации заголовка и ключевых слов
+2. Результаты сохраняются в CSV-файлах adobestock.csv и stocksubmitter.csv
+3. adobestock.csv для загрузки сразу на адоб
+4. stocksubmitter.csv чтобы прикрепить медатанные к файлам в соответствующем софте
 
 ## Начало Работы
 
 ### СКАЧАТЬ
 
 Скачать программу можно отсюда:
-### [Windows](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder.zip) 
+### [Windows](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder-win.zip) 
 ### [macOS](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder-mac.zip)
 
 ### Первый Запуск и Настройка
