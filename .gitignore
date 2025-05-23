@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+venv/
+env/
+.venv/
+.env
+
+# Build artifacts
+dist/
+build/
+*.spec
+
+# User-specific settings and data (DO NOT COMMIT THE ACTUAL SETTINGS FILE WITH SECRETS)
+settings.json
+
+# Logs and output data
+logs/
+output/
+processing.log
+*.csv
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea/
