@@ -14,9 +14,6 @@ dist/
 build/
 *.spec
 
-# User-specific settings and data (DO NOT COMMIT THE ACTUAL SETTINGS FILE WITH SECRETS)
-settings.json
-
 # Logs and output data
 logs/
 output/
