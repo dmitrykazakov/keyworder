@@ -14,8 +14,8 @@ stocksubmitter.csv чтобы прикрепить медатанные к фа�
 ### СКАЧАТЬ
 
 Скачать программу можно отсюда:
-Windows - 
-[macOS](https://github.com/AnatolySh/keyworder/releases/download/untagged-af2bc5a00881ed6289ff/keyworder-mac.zip)
+### [Windows](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder.zip) 
+### [macOS](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder-mac.zip)
 
 ### Первый Запуск и Настройка
 
