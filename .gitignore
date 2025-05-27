@@ -13,6 +13,7 @@ env/
 dist/
 build/
 *.spec
+ffmpeg
 
 # Logs and output data
 logs/

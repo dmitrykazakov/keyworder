@@ -1,3 +1,7 @@
+import warnings
+warnings.filterwarnings("ignore")
+
+
 import os
 import sys
 import base64
@@ -9,6 +13,7 @@ import shutil
 import argparse
 import io
 from concurrent.futures import ThreadPoolExecutor
+import multiprocessing 
 
 from PIL import Image, ExifTags
 from openai import OpenAI
@@ -47,7 +52,7 @@ def get_ffmpeg_executable_path():
     return "ffmpeg"
 
 SCRIPT_DIR = get_application_path()
-SETTINGS_FILE_PATH = resource_path("settings.json")
+SETTINGS_FILE_PATH = os.path.join(get_application_path(), "settings.json")
 
 def load_app_settings(settings_path):
     try:
@@ -91,19 +96,10 @@ def load_app_settings(settings_path):
         sys.exit(1)
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s (bootstrap)')
-APP_SETTINGS = load_app_settings(SETTINGS_FILE_PATH)
 
-try:
-    if not APP_SETTINGS.get("OPENAI_API_KEY"):
-        raise ValueError("OpenAI API key is empty in settings.")
-    client = OpenAI(api_key=APP_SETTINGS["OPENAI_API_KEY"])
-    logging.info(f"OpenAI client initialized successfully for model {APP_SETTINGS.get('OPENAI_MODEL')}.")
-except ValueError as ve:
-    logging.critical(f"Failed to initialize OpenAI client: {ve}")
-    sys.exit(1)
-except Exception as e:
-    logging.critical(f"Failed to initialize OpenAI client: {e}", exc_info=True)
-    sys.exit(1)
+
+APP_SETTINGS = None
+client = None
 
 class Description(BaseModel):
     title: str
@@ -437,6 +433,22 @@ def process_file(file_info, image_extensions, video_extensions, input_root_dir):
                     logging.error(f"Failed to remove temporary file {temp_path}: {e}", exc_info=True)
 
 def main():
+    global APP_SETTINGS, client
+
+    APP_SETTINGS = load_app_settings(SETTINGS_FILE_PATH)
+    try:
+        if not APP_SETTINGS.get("OPENAI_API_KEY"):
+            raise ValueError("OpenAI API key is empty in settings.")
+        client = OpenAI(api_key=APP_SETTINGS["OPENAI_API_KEY"])
+        logging.info(f"OpenAI client initialized successfully for model {APP_SETTINGS.get('OPENAI_MODEL')}.")
+    except ValueError as ve:
+        logging.critical(f"Failed to initialize OpenAI client: {ve}")
+        sys.exit(1)
+    except Exception as e:
+        logging.critical(f"Failed to initialize OpenAI client: {e}", exc_info=True)
+        sys.exit(1)
+
+
     parser = argparse.ArgumentParser(description="Process images and videos to generate metadata and CSV files.")
     default_input_dir = os.path.join(SCRIPT_DIR, "input")
     default_output_dir = os.path.join(SCRIPT_DIR, "output")
@@ -542,4 +554,5 @@ def main():
     logging.info(f"Processing complete. CSV files generated in '{output_directory}'.")
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     main()
