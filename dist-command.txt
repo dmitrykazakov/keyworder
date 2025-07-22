@@ -1,1 +1,1 @@
-python -m PyInstaller --noconfirm --onefile --name keyworder --add-binary "ffmpeg:."
+python -m PyInstaller --noconfirm --onefile --name keyworder --add-binary "ffmpeg:." keyworder.py
