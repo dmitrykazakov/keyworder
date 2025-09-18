@@ -14,8 +14,8 @@
 ### СКАЧАТЬ
 
 Скачать программу можно отсюда:
-### [Windows](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder-win.zip) 
-### [macOS](https://github.com/AnatolySh/keyworder/releases/download/v0.1/keyworder-mac.zip)
+### [Windows](https://github.com/dmitrykazakov/keyworder/releases/download/Windows/keyworder-v1.1.zip) 
+
 
 ### Поддержка
 
