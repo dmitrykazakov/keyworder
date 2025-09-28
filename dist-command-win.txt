@@ -1,1 +1,1 @@
-python -m PyInstaller --noconfirm --onefile --name keyworder --add-binary "ffmpeg.exe:." keyworder.py
+python -m PyInstaller --noconfirm --onefile --name keyworder_img --add-binary "ffmpeg.exe:." keyworder_img.py

@@ -1,0 +1,1 @@
+keyworder_img.exe --input_dir ".." --output_dir ".."
